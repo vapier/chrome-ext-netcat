@@ -1,0 +1,107 @@
+<!-- Written by Mike Frysinger <vapier@gmail.com>.  Released into the public domain. -->
+<!doctype html>
+<html>
+
+<head>
+<title>Netcat</title>
+<link rel='stylesheet' href='css/dark.css' media='(prefers-color-scheme: dark), (prefers-color-scheme: no-preference)'/>
+<link rel='stylesheet' href='css/light.css' media='(prefers-color-scheme: light)'/>
+<!-- Load theme override asap to help with initial loading/flashing. -->
+<link rel='stylesheet' href='' id='theme-override'/>
+<script src='theme-init.js'></script>
+
+<link rel='stylesheet' href='css/main.css'/>
+<script type='module' src='main.js'></script>
+</head>
+
+<body>
+
+<div class='window'>
+ <div class='status'>Status: <span name='status'>disconnected</span></div>
+ <div class='notice' name='notice' hidden></div>
+ <div class='output' id='output-frame'><span name='output'>
+    /\_/\
+   / 0 0 \              Tip: Press tab to switch to line edit/IME/compose mode.
+  ====v====                  Press escape to switch back to immediate mode.
+   \  W  /
+   |     |     _        Tip: Right click at runtime to bring up status menu.
+   / ___ \    /
+  / /   \ \  |
+ (((-----)))-'
+  /
+ (      ___
+  \__.=|___E
+         /
+</span><textarea id='user-input' rows='1'
+                 autocapitalize='none'
+                 autocomplete='off'
+                 autocorrect='off'
+                 spellcheck='false'
+                 placeholder='Line edit / IME / compose mode; Escape to exit.'
+                 title='
+Escape: Exit line edit/IME/compose mode.
+Tab: Insert a tab!
+Enter: Send text with a newline.
+Alt-Enter: Send text without a newline.
+Ctrl-Enter: Insert a newline.
+'></textarea></div>
+
+ <div class='connect'>
+  <form name='connect'>
+  <table>
+   <tr>
+    <td>hostname/ip:</td>
+    <td>
+      <input name='host' value='localhost'>
+      <button name='interfaces'>ᐁ</button>
+      <div id='interface-selector' />
+    </td>
+   </tr>
+   <tr>
+    <td>port:</td>
+    <td><input name='port' value='80'></td>
+   </tr>
+   <tr>
+    <td>proto:</td>
+    <td>
+     <span name='proto-tcp'>
+      <input type='radio' name='proto' value='tcp' id='proto-tcp' checked> TCP
+     </span>
+     &nbsp;&nbsp;
+     <span name='proto-udp'>
+      <input type='radio' name='proto' value='udp' id='proto-udp'> UDP
+     </span>
+    </td>
+   </tr>
+   <tr>
+    <td>listen:</td>
+    <td><input type='checkbox' name='listen'></td>
+   </tr>
+   <tr>
+    <td>clear:</td>
+    <td><input type='checkbox' name='clear' checked></td>
+   </tr>
+   <tr>
+    <td colspan=2 align='middle'>
+     <input type='submit' name='connect' value='Connect'>
+     <button name='theme' style='float:right'></button>
+    </td>
+   </tr>
+  </table>
+  </form>
+ </div>
+
+ <div class='state' hidden>
+  <table>
+   <tr>
+    <td colspan=2 align='middle'>
+     <input type='submit' name='disconnect' value='Disconnect'>
+    </td>
+   </tr>
+  </table>  
+ </div>
+
+</div>
+
+</body>
+</html>

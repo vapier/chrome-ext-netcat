@@ -1,0 +1,117 @@
+@charset "utf-8";
+
+/* Written by Mike Frysinger <vapier@gmail.com>.  Released into the public domain. */
+
+table {
+	margin: 0px;
+	padding: 0px;
+	border-collapse: collapse;
+}
+body {
+	background-color: var(--bg-color);
+	color: var(--fg-color);
+	margin: 0px;
+	padding: 0px;
+	font-family: monospace;
+}
+
+input, button {
+	filter: var(--input-filter);
+}
+button[name="theme"]::before {
+	content: var(--theme-text);
+}
+
+#user-input {
+	width: calc(100% - 1em);
+	filter: none;
+	background-color: var(--bg-color);
+	color: var(--fg-color);
+	font-family: monospace;
+	font: inherit;
+	position: fixed;
+	bottom: 0px;
+	left: 0px;
+	border: 1px solid var(--fg-color);
+	padding: 0px;
+	resize: none;
+	display: none;
+}
+
+div.state,
+div.connect {
+	background-color: var(--status-color);
+	border: 1px var(--fg-color) dashed;
+	padding: 1em;
+}
+div.connect table {
+	padding: 1em;
+}
+div.state td,
+div.connect td {
+	height: 2em;
+}
+
+div.notice,
+div.status {
+	background-color: var(--status-color);
+	border: 1px var(--fg-color) dashed;
+}
+div.notice {
+	color: red;
+}
+
+div.output {
+	cursor: text;
+	white-space: pre-wrap;
+	overflow: auto;
+	-webkit-user-select: text;
+}
+
+/* Control floating behavior of divs */
+html, body {
+	height: 100%;
+}
+div.notice {
+	position: fixed;
+	z-index: 10;
+	left: 20%;
+	top: 10%;
+}
+div.status {
+	position: fixed;
+	z-index: 10;
+	left: 40%;
+}
+div.window {
+	position: relative;
+	min-height: 100%;
+}
+div.output {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	margin-bottom: 1em;
+}
+div.connect {
+	position: absolute;
+	top: 40%;
+	left: 30%;
+	clear: both;
+}
+div.state {
+	position: absolute;
+	top: 40%;
+	left: 30%;
+	clear: both;
+}
+
+#interface-selector {
+	position: absolute;
+	display: none;
+	z-index: 10;
+}
+button.interface-entry {
+	width: 100%;
+	text-align: left;
+}

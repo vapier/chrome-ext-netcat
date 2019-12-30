@@ -1,0 +1,13 @@
+@charset "utf-8";
+
+/* Written by Mike Frysinger <vapier@gmail.com>.  Released into the public domain. */
+
+:root {
+	/* NB: No space after colon. */
+	--theme:light;
+	--bg-color: white;
+	--fg-color: black;
+	--status-color: #eee;
+	--input-filter: initial;
+	--theme-text: '☀';
+}

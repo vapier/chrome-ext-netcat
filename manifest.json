@@ -1,0 +1,38 @@
+{
+  "manifest_version": 2,
+  "minimum_chrome_version": "56",
+  "name": "Netcat",
+  "version": "6.0",
+  "description": "Netcat in the browser",
+  "icons": {
+    "128": "images/icon-128x128.png"
+  },
+  "app": {
+    "persistent": false,
+    "background": {
+      "scripts": ["background.js"]
+    }
+  },
+  "offline_enabled": true,
+  "permissions": [
+    "storage",
+    {"socket": [
+      "tcp-connect",
+      "tcp-listen",
+      "udp-bind",
+      "udp-send-to"
+    ]}
+  ],
+  "sockets": {
+    "tcp": {
+      "connect": ["*:*"]
+    },
+    "tcpServer": {
+      "listen": ["*:*"]
+    },
+    "udp": {
+      "bind": ["*:*"],
+      "send": ["*:*"]
+    }
+  }
+}
